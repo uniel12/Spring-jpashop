@@ -1,0 +1,40 @@
+server:
+  servlet:
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
+      force-response: true
+  port: 8086
+
+spring: #띄어쓰기 없음
+  devtools:
+    livereload:
+      enabled: true
+    restart:
+      enabled: true
+  datasource: #띄어쓰기 2칸
+    url: jdbc:h2:tcp://localhost/~/jpashop #4칸
+    username: sa
+    password:
+    driver-class-name: org.h2.Driver
+  thymeleaf:
+    prefix: classpath:/templates/
+    suffix: .html
+
+  jpa: #띄어쓰기 2칸
+    hibernate:  #띄어쓰기 4칸
+      ddl-auto: none #띄어쓰기 6칸 #app 로딩 시점에 테이블 다 드랍하고 새로시작, 끝나도 그대로 남아있음 ,ddl_auto: none # DB 초기화 작업을 수행하지 못하도록 함, 스프링 부트 기본값은 create-drop 종료시 스키마 삭제
+    properties:  #띄어쓰기 4칸
+      hibernate:  #띄어쓰기 6칸
+#        show_sql: true #띄어쓰기 8칸 #콘솔에 로그가 나옴
+        format_sql: true #띄어쓰기 8칸 #sql 보기 편하게 해줌
+        
+        
+logging.level:  #띄어쓰기 없음
+  org.hibernate.SQL: debug #띄어쓰기 2칸 #콘솔에 남기는게 아니라 로그로 남음
+  org.hibernate.orm.jdbc.bind: trace #띄어쓰기 2칸 #바인딩된 파라미터까지 볼 수 있음
+# org.hibernate.type: trace #스프링 부트 2.x, hibernate5
+# org.hibernate.orm.jdbc.bind: trace #스프링 부트 3.x, hibernate6 
+
+  
